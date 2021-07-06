@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_webrtc/webrtc.dart';
 import 'package:clone/Home.dart';
-import 'package:eventify/eventify.dart';
 import 'package:clone/pojo/meeting_details.dart';
 import 'package:clone/screen/chatScreen.dart';
 import 'package:clone/sdk/meeting.dart';

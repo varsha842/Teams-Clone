@@ -20,6 +20,7 @@ class _SignInState extends State<SignIn> {
 
   TextEditingController mail = TextEditingController();
   TextEditingController password = TextEditingController();
+  TextEditingController name = TextEditingController();
   @override
   // String mail = ' ';
   // String password = ' ';
@@ -76,6 +77,7 @@ class _SignInState extends State<SignIn> {
                       validator: (val) => val.isEmpty ? 'Enter an email' : null,
                       controller: mail,
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email),
                         border: new OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
                           const Radius.circular(30.0),
@@ -97,6 +99,7 @@ class _SignInState extends State<SignIn> {
                       obscureText: true,
                       controller: password,
                       decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.lock),
                           border: new OutlineInputBorder(
                               borderRadius: const BorderRadius.all(
                             const Radius.circular(30.0),

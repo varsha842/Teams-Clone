@@ -19,12 +19,14 @@ class _RegisterState extends State<Register> {
 
   TextEditingController mail = TextEditingController();
   TextEditingController password = TextEditingController();
+  TextEditingController confirmPassword = TextEditingController();
+  TextEditingController name = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Sign up'),
+          title: Text('Sign Up'),
           backgroundColor: Colors.blueGrey,
           actions: <Widget>[
             FlatButton.icon(
@@ -57,10 +59,28 @@ class _RegisterState extends State<Register> {
                   alignment: Alignment.center,
                   padding: EdgeInsets.all(10),
                   child: TextFormField(
+                    validator: (val) => val.isEmpty ? 'Enter user name' : null,
+                    controller: name,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
+                        border: new OutlineInputBorder(
+                            borderRadius: const BorderRadius.all(
+                          const Radius.circular(30.0),
+                        )),
+                        labelText: 'Username'),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.all(10),
+                  child: TextFormField(
                     validator: (val) => val.isEmpty ? 'Enter a email' : null,
                     controller: mail,
                     autofocus: true,
                     decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email),
+                        // icon: Icon(Icons.email),
                         border: new OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
                           const Radius.circular(30.0),
@@ -78,11 +98,42 @@ class _RegisterState extends State<Register> {
                     obscureText: true,
                     controller: password,
                     decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
                         border: new OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
                           const Radius.circular(30.0),
                         )),
                         labelText: 'Password'),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.all(10),
+                  child: TextFormField(
+                    controller: confirmPassword,
+                    validator: (val) {
+                      if (val.length < 6) {
+                        return 'Please re enter your password';
+                      }
+                      print(password.text);
+                      print(confirmPassword.text);
+                      if (password.text != confirmPassword.text) {
+                        return "Password does not match";
+                      }
+                      return null;
+                    },
+                    // validator: (val) => val.length < 6
+                    //     ? 'Password must be atleast 6 character'
+                    //     : null,
+                    obscureText: true,
+
+                    decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
+                        border: new OutlineInputBorder(
+                            borderRadius: const BorderRadius.all(
+                          const Radius.circular(30.0),
+                        )),
+                        labelText: 'Re-enter Password'),
                   ),
                 ),
                 Container(

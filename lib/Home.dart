@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:clone/screen/MeetScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:clone/pojo/meeting_details.dart';
@@ -20,11 +21,11 @@ class _HomeState extends State<Home> {
 
   final _formKey = GlobalKey<FormState>();
 
-  void goToJoinScreen(MeetingDetail meetingDetail) {
+  void goToMeetingScreen(MeetingDetail meetingDetail) {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => JoinScreen(
+        builder: (context) => MeetingScreen(
           meetingId: meetingDetail.id,
           meetingDetail: meetingDetail,
         ),
@@ -38,7 +39,7 @@ class _HomeState extends State<Home> {
       var data = json.decode(response.body);
       final meetingDetail = MeetingDetail.fromJson(data);
       print('meetingDetail $meetingDetail');
-      goToJoinScreen(meetingDetail);
+      goToMeetingScreen(meetingDetail);
     } catch (err) {
       final snackbar = SnackBar(content: Text('Invalid Meeting Id'));
       var scaffoldKey;
@@ -115,6 +116,7 @@ class _HomeState extends State<Home> {
                           val.isEmpty ? 'Enter valid meeting ID' : null,
                       controller: join,
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.keyboard),
                         border: new OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
                           const Radius.circular(30.0),

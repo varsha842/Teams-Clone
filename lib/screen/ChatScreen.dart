@@ -14,7 +14,7 @@ class ChatScreen extends StatelessWidget {
       new TextEditingController();
   final List<Connection> connections;
   final String userId;
-  final String userName;
+  String userName = 'vj';
   final _scrollcontroller = ScrollController();
 
   ChatScreen({
