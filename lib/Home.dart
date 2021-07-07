@@ -57,6 +57,7 @@ class _HomeState extends State<Home> {
 
   void startMeetingClick() async {
     var response = await startMeeting();
+    print(response.body);
     final body = json.decode(response.body);
     final meetingId = body['meetingId'];
     print('Started meeting $meetingId');
@@ -113,8 +114,8 @@ class _HomeState extends State<Home> {
                     alignment: Alignment.center,
                     padding: EdgeInsets.all(10),
                     child: TextFormField(
-                      validator: (val) =>
-                          val.isEmpty ? 'Enter valid meeting ID' : null,
+                      // validator: (val) =>
+                      //     val.isEmpty ? 'Enter valid meeting ID' : null,
                       controller: join,
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.keyboard),

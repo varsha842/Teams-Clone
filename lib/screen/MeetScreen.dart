@@ -221,7 +221,8 @@ class _MeetingScreenState extends State<MeetingScreen> {
     if (choice.id == PopUpChoiceEnum.CopyId) {
       text = meetingId;
     } else if (choice.id == PopUpChoiceEnum.CopyLink) {
-      text = 'https://192.168.1.8:8081/meeting/$meetingId';
+      // text = 'https://192.168.1.8:8081/meeting/$meetingId';
+      text = 'https://cloneteams.herokuapp.com/meeting/$meetingId';
     }
     await Clipboard.setData(ClipboardData(text: text));
     scaffoldKey.currentState.showSnackBar(snackBar);
