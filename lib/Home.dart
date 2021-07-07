@@ -3,10 +3,10 @@
 import 'dart:convert';
 
 import 'package:clone/screen/MeetScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:clone/pojo/meeting_details.dart';
-import 'package:clone/screen/join.dart';
 import 'package:clone/services/auth.dart';
 import 'package:clone/services/meet_api.dart';
 
@@ -27,6 +27,7 @@ class _HomeState extends State<Home> {
       MaterialPageRoute(
         builder: (context) => MeetingScreen(
           meetingId: meetingDetail.id,
+          name: FirebaseAuth.instance.currentUser.displayName,
           meetingDetail: meetingDetail,
         ),
       ),

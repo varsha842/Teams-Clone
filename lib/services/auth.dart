@@ -13,18 +13,6 @@ class AuthService {
     return _auth.authStateChanges().map((User user) => _userFromFirebase(user));
   }
 
-  //sign in anon
-  Future signInAnon() async {
-    try {
-      UserCredential result = await _auth.signInAnonymously();
-      User user = result.user;
-      return _userFromFirebase(user);
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
-  }
-
   //sign with email and password
   Future signInWithEmailAndPassword(String mail, String password) async {
     try {
@@ -40,11 +28,15 @@ class AuthService {
 
   //register with email and password
 
-  Future registerWithEmailAndPassword(String mail, String password) async {
+  Future registerWithEmailAndPassword(
+      String name, String mail, String password) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: mail, password: password);
+
       User user = result.user;
+      user.updateDisplayName(name);
+
       return _userFromFirebase(user);
     } catch (e) {
       print(e.toString());
