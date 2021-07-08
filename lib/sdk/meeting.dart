@@ -14,7 +14,7 @@ import 'package:clone/sdk/transport.dart';
 class Meeting extends EventEmitter {
 //  final String url = 'wss://api.meetx.madankumar.me/websocket/meeting';
   // final String url = 'ws://192.168.1.8:8081/websocket/meeting';
-  // final String url = 'wss://git.heroku.com/cloneteams.git/websocket/meeting';
+
   final String url = 'wss://cloneteams.herokuapp.com/websocket/meeting';
   Transport transport;
   String meetingId;

@@ -1,3 +1,4 @@
+import 'package:clone/screen/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:clone/screen/wrapper.dart';
@@ -27,7 +28,7 @@ class _State extends State<MyApp> {
         child: MaterialApp(
           initialRoute: '/',
           routes: {
-            '/': (context) => Wrapper(),
+            '/': (context) => Welcome(),
           },
         ));
   }

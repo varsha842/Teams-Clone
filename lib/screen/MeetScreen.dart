@@ -103,6 +103,8 @@ class _MeetingScreenState extends State<MeetingScreen> {
     _localRenderer.srcObject = _localstream;
     _localRenderer.objectFit =
         RTCVideoViewObjectFit.RTCVideoViewObjectFitContain;
+    print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
+    print(_localRenderer);
     meeting = new Meeting(
       meetingId: widget.meetingDetail.id,
       stream: _localstream,
