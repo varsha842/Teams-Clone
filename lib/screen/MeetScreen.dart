@@ -59,7 +59,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
   };
   final List<PopUpChoice> choices = [
     PopUpChoice(PopUpChoiceEnum.CopyId, 'Copy Meeting ID'),
-    PopUpChoice(PopUpChoiceEnum.CopyLink, 'Copy Meeting Link'),
+    // PopUpChoice(PopUpChoiceEnum.CopyLink, 'Copy Meeting Link'),
   ];
   bool isChatOpen = false;
   List<dynamic> messages = [];
@@ -103,7 +103,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
     _localRenderer.srcObject = _localstream;
     _localRenderer.objectFit =
         RTCVideoViewObjectFit.RTCVideoViewObjectFitContain;
-    print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n');
+
     print(_localRenderer);
     meeting = new Meeting(
       meetingId: widget.meetingDetail.id,
