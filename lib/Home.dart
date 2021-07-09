@@ -24,6 +24,9 @@ class _HomeState extends State<Home> {
   bool loading = false;
 
   void goToMeetingScreen(MeetingDetail meetingDetail) {
+    setState(() {
+      loading = false;
+    });
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -44,6 +47,9 @@ class _HomeState extends State<Home> {
       print('meetingDetail $meetingDetail');
       goToMeetingScreen(meetingDetail);
     } catch (err) {
+      setState(() {
+        loading = false;
+      });
       final snackbar = SnackBar(content: Text('Invalid Meeting Id'));
       var scaffoldKey;
       scaffoldKey.currentState.showSnackBar(snackbar);
@@ -52,12 +58,18 @@ class _HomeState extends State<Home> {
   }
 
   void joinMeet() async {
+    setState(() {
+      loading = true;
+    });
     final meetingId = join.text;
     print('Joined meeting $meetingId');
     validateMeeting(meetingId);
   }
 
   void startMeetingClick() async {
+    setState(() {
+      loading = true;
+    });
     var response = await startMeeting();
     print(response.body);
     final body = json.decode(response.body);

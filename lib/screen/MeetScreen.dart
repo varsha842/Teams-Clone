@@ -1,3 +1,4 @@
+import 'package:clone/screen/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_webrtc/webrtc.dart';
@@ -320,37 +321,39 @@ class _MeetingScreenState extends State<MeetingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      appBar: AppBar(
-        title: Text("Clone"),
-        actions: _buildActions(),
-        backgroundColor: Colors.blueGrey,
-      ),
-      body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: pageController,
-        children: <Widget>[
-          _buildMeetingRoom(),
-          ChatScreen(
-            messages: messages.cast<MessageFormat>(),
-            onSendMessage: handleSendMessage,
-            connections: meeting.connections,
-            userId: meeting.userId,
-            userName: meeting.name,
-          )
-        ],
-      ),
-      bottomNavigationBar: ControlPanel(
-        onAudioToggle: onAudioToggle,
-        onVideoToggle: onVideoToggle,
-        videoEnabled: isVideoEnabled(),
-        audioEnabled: isAudioEnabled(),
-        isConnectionFailed: isConnectionFailed,
-        onReconnect: handleReconnect,
-        onChatToggle: handleChatToggle,
-        isChatOpen: isChatOpen,
-      ),
-    );
+    return meeting == null
+        ? Loading()
+        : Scaffold(
+            key: scaffoldKey,
+            appBar: AppBar(
+              title: Text("Clone"),
+              actions: _buildActions(),
+              backgroundColor: Colors.blueGrey,
+            ),
+            body: PageView(
+              physics: NeverScrollableScrollPhysics(),
+              controller: pageController,
+              children: <Widget>[
+                _buildMeetingRoom(),
+                ChatScreen(
+                  messages: messages.cast<MessageFormat>(),
+                  onSendMessage: handleSendMessage,
+                  connections: meeting.connections,
+                  userId: meeting.userId,
+                  userName: meeting.name,
+                )
+              ],
+            ),
+            bottomNavigationBar: ControlPanel(
+              onAudioToggle: onAudioToggle,
+              onVideoToggle: onVideoToggle,
+              videoEnabled: isVideoEnabled(),
+              audioEnabled: isAudioEnabled(),
+              isConnectionFailed: isConnectionFailed,
+              onReconnect: handleReconnect,
+              onChatToggle: handleChatToggle,
+              isChatOpen: isChatOpen,
+            ),
+          );
   }
 }
