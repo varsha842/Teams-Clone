@@ -50,9 +50,9 @@ class _HomeState extends State<Home> {
       setState(() {
         loading = false;
       });
-      final snackbar = SnackBar(content: Text('Invalid Meeting Id'));
-      var scaffoldKey;
-      scaffoldKey.currentState.showSnackBar(snackbar);
+      // final snackbar = SnackBar(content: Text('Invalid Meeting Id'));
+      // var scaffoldKey;
+      // scaffoldKey.currentState.showSnackBar(snackbar);
       print(err);
     }
   }
@@ -102,6 +102,10 @@ class _HomeState extends State<Home> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(1)))),
                     onPressed: () async {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: const Text('Logging Out'),
+                        duration: const Duration(seconds: 3),
+                      ));
                       await _auth.signOut();
                     })
               ],

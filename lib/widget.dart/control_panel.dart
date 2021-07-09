@@ -7,6 +7,7 @@ class ControlPanel extends StatelessWidget {
   final bool isConnectionFailed;
   final bool isChatOpen;
   final VoidCallback onVideoToggle;
+  final VoidCallback onCamSwitch;
   final VoidCallback onAudioToggle;
   final VoidCallback onReconnect;
   final VoidCallback onChatToggle;
@@ -14,6 +15,7 @@ class ControlPanel extends StatelessWidget {
   ControlPanel({
     this.onAudioToggle,
     this.onVideoToggle,
+    this.onCamSwitch,
     this.videoEnabled,
     this.audioEnabled,
     this.onReconnect,
@@ -29,20 +31,26 @@ class ControlPanel extends StatelessWidget {
           onPressed: onVideoToggle,
           icon: Icon(videoEnabled ? Icons.videocam : Icons.videocam_off),
           color: Colors.white,
-          iconSize: 32.0,
+          iconSize: 28.0,
         ),
         IconButton(
           onPressed: onAudioToggle,
           icon: Icon(audioEnabled ? Icons.mic : Icons.mic_off),
           color: Colors.white,
-          iconSize: 32.0,
+          iconSize: 28.0,
+        ),
+        IconButton(
+          onPressed: onCamSwitch,
+          icon: Icon(Icons.flip_camera_ios_rounded),
+          color: Colors.white,
+          iconSize: 28.0,
         ),
         IconButton(
           onPressed: onChatToggle,
           icon:
               Icon(isChatOpen ? Icons.speaker_notes_off : Icons.speaker_notes),
           color: Colors.white,
-          iconSize: 32.0,
+          iconSize: 28.0,
         ),
       ];
     } else {

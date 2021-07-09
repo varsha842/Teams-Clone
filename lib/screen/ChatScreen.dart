@@ -49,6 +49,7 @@ class ChatScreen extends StatelessWidget {
 
   void onSendClick() {
     var text = textEditingController.text;
+    if (text.trim() == '') return;
     onSendMessage(text);
   }
 

@@ -147,8 +147,8 @@ class _MeetingScreenState extends State<MeetingScreen> {
       });
     });
     meeting.on('failed', null, (ev, ctx) {
-      final snackBar = SnackBar(content: Text('Connection Failed'));
-      scaffoldKey.currentState.showSnackBar(snackBar);
+      // final snackBar = SnackBar(content: Text('Connection Failed'));
+      // scaffoldKey.currentState.showSnackBar(snackBar);
       setState(() {
         isConnectionFailed = true;
       });
@@ -162,8 +162,8 @@ class _MeetingScreenState extends State<MeetingScreen> {
   }
 
   void meetingEndedEvent() {
-    final snackBar = SnackBar(content: Text('Meeting Ended'));
-    scaffoldKey.currentState.showSnackBar(snackBar);
+    // final snackBar = SnackBar(content: Text('Meeting Ended'));
+    // scaffoldKey.currentState.showSnackBar(snackBar);
     goToHome();
   }
 
@@ -191,6 +191,14 @@ class _MeetingScreenState extends State<MeetingScreen> {
     if (meeting != null) {
       setState(() {
         meeting.toggleVideo();
+      });
+    }
+  }
+
+  void onCamSwitch() {
+    if (meeting != null) {
+      setState(() {
+        meeting.switchCamera();
       });
     }
   }
@@ -347,6 +355,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
             bottomNavigationBar: ControlPanel(
               onAudioToggle: onAudioToggle,
               onVideoToggle: onVideoToggle,
+              onCamSwitch: onCamSwitch,
               videoEnabled: isVideoEnabled(),
               audioEnabled: isAudioEnabled(),
               isConnectionFailed: isConnectionFailed,

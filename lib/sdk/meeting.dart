@@ -27,6 +27,7 @@ class Meeting extends EventEmitter {
   List<MessageFormat> messages = [];
   bool videoEnabled = true;
   bool audioEnabled = true;
+  bool isFrontCamera = true;
 
   Meeting({this.meetingId, this.userId, this.name, this.stream}) {
     this.transport = new Transport(
@@ -249,6 +250,15 @@ class Meeting extends EventEmitter {
       }
     }
     return false;
+  }
+
+  void switchCamera() async {
+    if (stream != null) {
+      bool value = await stream.getVideoTracks()[0].switchCamera();
+      while (value == this.isFrontCamera)
+        value = await stream.getVideoTracks()[0].switchCamera();
+      this.isFrontCamera = value;
+    }
   }
 
   bool toggleAudio() {

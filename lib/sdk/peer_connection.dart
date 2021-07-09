@@ -15,10 +15,10 @@ class PeerConnection extends EventEmitter {
 
   final Map<String, dynamic> configuration = {
     'iceServers': [
-      {"url": 'stun:stun.l.google.com:19302'},
-      {"url": 'stun:stun1.l.google.com:19302'},
+      // {"url": 'stun:stun.l.google.com:19302'},
+      // {"url": 'stun:stun1.l.google.com:19302'},
       {
-        "url": 'turn:numb.viagenie.ca',
+        "url": 'turn:numb.viagenie.ca?transport=udp',
         'username': 'varsha.jangir.ece19@itbhu.ac.in',
         'credential': 'Varsha2000'
       }
