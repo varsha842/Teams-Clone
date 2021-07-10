@@ -125,41 +125,35 @@ Clone uses Peer to Peer mesh architecture. Mesh architecture provides group vide
 
 
 
-
-### Installation
-
-- Clone the repo
-```sh
-git clone https://github.com/varsha842/Teams-Clone.git
-```
-- Install [Flutter](https://flutter.dev/docs/get-started/instal) on your device. Install the [Flutter Extension](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) on VSCode.
-
-- Connect your Android Device with USB debugging and Developer Mode activated.
-
-- Run the [main.dart](https://github.com/varsha842/Teams-Clone/blob/main/lib/main.dart) file
-
-
 ### Running on local network
 
 1. Setup the server as given [here](https://github.com/varsha842/Teams-Clone-Server.git).
 
-2. Run **clone** app on Android.
+
+2. Clone the repo
+```sh
+git clone https://github.com/varsha842/Teams-Clone.git
+```
+3. Install [Flutter](https://flutter.dev/docs/get-started/instal) on your device. Install the [Flutter Extension](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) on VSCode.
+
+4. Connect your Android Device with USB debugging and Developer Mode activated.
+
+5. If you wish to use the Local Server instead of the Global One(default), exchange the commented links with their next lines after inserting your appropriate local IP adress [here](https://github.com/varsha842/Teams-Clone/blob/2a1815a9aa1f7685687cd75e7a67c2bc015df56a/lib/services/meet_api.dart#L6), [here](https://github.com/varsha842/Teams-Clone/blob/2a1815a9aa1f7685687cd75e7a67c2bc015df56a/lib/sdk/meeting.dart#L12) and [here](https://github.com/varsha842/Teams-Clone/blob/2a1815a9aa1f7685687cd75e7a67c2bc015df56a/lib/screen/MeetScreen.dart#L231).
+
+6. Run the [main.dart](https://github.com/varsha842/Teams-Clone/blob/main/lib/main.dart) file
+
 
 ## **Snapshots :**
+
 <img width = "180" src = "./images/welcome.jpg">
-<!-- |:--:| 
-| Welcome Screen | -->
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img width = "180" src = "./images/signup.jpg">
+<img style = "float: right;" width = "180" src = "./images/signup.jpg">
 
 <img width = "180" src = "./images/signin.jpg">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img width = "180" src = "./images/meeting.jpg">
+<img style = "float: right;" width = "180" src = "./images/meeting.jpg">
 
 
 
-
-
+<br/>
 
 <!-- ROADMAP -->
 ## Scope
