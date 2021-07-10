@@ -35,14 +35,12 @@ This is a Flutter project which uses Firebase for authentication and WebRTC for 
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#pre-requisites">Pre-requisites</a></li>
         <li><a href="#installation">Installation</a></li>
-        <li><a href="#running-on-local-network">Running</a>
-        </li>
       </ul>
     </li>
     <li><a href="#snapshots">Snapshots</a></li>
-    <li><a href="#scope">Roadmap</a></li>
+    <li><a href="#scope">Scope</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -107,10 +105,16 @@ Scrum is an **Agile** development methodology used in the development of softwar
 
 ## **Architecture :**
 Clone uses Peer to Peer mesh architecture. Mesh architecture provides group video call functionality. WebRTC is used for the real time media communication between devices. WebRTC is a fully peer-to-peer technology for the real-time exchange of audio, video, and data, with one central caveat. Making this into a group call in P2P translates into a mesh network, where every WebRTC client has a peer connection opened to all other clients directly. When dealing with WebRTC and indicating Peer to Peer mesh, the focus is almost always on media transport. The signaling still flows through servers as WebRTC doesn't provide signaling which is essential for establishing connection.
+<p align="center">
+   <img width = "400" src="./images/mesh.png">
+
+First of all, each user registers with the server. Once users have registered, they are able to call each other. On creating a meet, a code is generated. User 1 makes an offer with all the users currently connected with this particular code. The other users should answer. Finally, ICE candidates are sent between users until they can make a connection.
+
+To create a WebRTC connection clients have to be able to transfer messages without using a WebRTC peer connection. This is where we will use HTML5 WebSockets – a bidirectional socket connection between two endpoints – a web server and a client.
+
 
 <p align="center">
-   <img src="./images/mesh.png">
-
+   <img width = "400" src="./images/building_the_server.jpg">
 
 
 <!-- GETTING STARTED -->
@@ -121,11 +125,11 @@ Clone uses Peer to Peer mesh architecture. Mesh architecture provides group vide
 - [Basic setup of VSCode](https://code.visualstudio.com/download)
 - [Server Setup](https://github.com/varsha842/Teams-Clone-Server.git)
 
+### Installation
 
+- Install the [app]().
 
-
-
-### Running on local network
+**(OR)**
 
 1. Setup the server as given [here](https://github.com/varsha842/Teams-Clone-Server.git).
 
@@ -145,11 +149,10 @@ git clone https://github.com/varsha842/Teams-Clone.git
 
 ## **Snapshots :**
 
-<img width = "180" src = "./images/welcome.jpg">
-<img style = "float: right;" width = "180" src = "./images/signup.jpg">
-
-<img width = "180" src = "./images/signin.jpg">
-<img style = "float: right;" width = "180" src = "./images/meeting.jpg">
+<img width = "220" src = "./images/welcome.jpg">
+<img  width = "220" src = "./images/signup.jpg">
+<img width = "220" src = "./images/signin.jpg">
+<img  width = "220" src = "./images/meeting.jpg">
 
 
 
@@ -173,12 +176,12 @@ git clone https://github.com/varsha842/Teams-Clone.git
 
 <!-- CONTACT -->
 ## Contact
-- GMail : varshajangir75@gmail.com
+- Gmail : varshajangir75@gmail.com
 - Project : [https://github.com/varsha842/Teams-Clone](https://github.com/varsha842/Teams-Clone)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [nodemon](https://www.npmjs.com/package/nodemon)
 - [sdp_transform](https://pub.dev/packages/sdp_transform)
 - [uuid](https://pub.dev/packages/uuid)
 - [eventify](https://pub.dev/packages/eventify)
