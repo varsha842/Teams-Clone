@@ -1,8 +1,5 @@
 import 'package:eventify/eventify.dart';
 import 'package:flutter_webrtc/webrtc.dart';
-// import 'package:flutter_webrtc/rtc_peerconnection.dart';
-// import 'package:flutter_webrtc/rtc_video_view.dart';
-// import 'package:flutter_webrtc/rtc_peerconnection_factory.dart';
 
 class PeerConnection extends EventEmitter {
   MediaStream localStream;
@@ -15,13 +12,13 @@ class PeerConnection extends EventEmitter {
 
   final Map<String, dynamic> configuration = {
     'iceServers': [
-      {"url": 'stun:stun.l.google.com:19302'},
-      {"url": 'stun:stun1.l.google.com:19302'},
       {
         "url": 'turn:numb.viagenie.ca?transport=udp',
         'username': 'varsha.jangir.ece19@itbhu.ac.in',
         'credential': 'Varsha2000'
-      }
+      },
+      {"url": 'stun:stun.l.google.com:19302'},
+      {"url": 'stun:stun1.l.google.com:19302'},
     ]
   };
   final Map<String, dynamic> loopbackConstraints = {

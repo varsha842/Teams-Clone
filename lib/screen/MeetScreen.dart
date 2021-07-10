@@ -10,11 +10,7 @@ import 'package:clone/sdk/message_format.dart';
 import 'package:clone/util/user.util.dart';
 import 'package:clone/widget.dart/action_button.dart';
 import 'package:clone/widget.dart/control_panel.dart';
-// import 'package:flutter_webrtc/src/interface/enums.dart';
 import 'package:clone/widget.dart/remote_video_page.dart';
-// import 'package:flutter_webrtc/get_user_media.dart';
-// import 'package:flutter_webrtc/media_stream.dart';
-// import 'package:flutter_webrtc/rtc_video_view.dart';
 
 enum PopUpChoiceEnum { CopyLink, CopyId }
 
@@ -232,7 +228,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
     if (choice.id == PopUpChoiceEnum.CopyId) {
       text = meetingId;
     } else if (choice.id == PopUpChoiceEnum.CopyLink) {
-      // text = 'https://192.168.1.8:8081/meeting/$meetingId';
+      // text = 'https://<Your Local IP>:8081/meeting/$meetingId';
       text = 'https://cloneteams.herokuapp.com/meeting/$meetingId';
     }
     await Clipboard.setData(ClipboardData(text: text));

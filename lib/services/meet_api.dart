@@ -3,8 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:clone/util/user.util.dart';
 import 'package:clone/services/meet_api.dart';
 
-// final String MEETING_API_URL = '<api_url>/meeting';
-// final String MEETING_API_URL = 'http://192.168.1.8:8081/meeting';
+// final String MEETING_API_URL = 'http://<YOUR LOCAL IP>:8081/meeting';
 final String MEETING_API_URL = 'https://cloneteams.herokuapp.com/meeting';
 
 Future<http.Response> startMeeting() async {

@@ -2,9 +2,6 @@ import 'dart:convert';
 
 import 'package:eventify/eventify.dart';
 import 'package:flutter_webrtc/webrtc.dart';
-// import 'package:flutter_webrtc/media_stream.dart';
-import 'package:flutter_webrtc/rtc_ice_candidate.dart';
-// import 'package:flutter_webrtc/rtc_session_description.dart';
 import 'package:clone/sdk/connection.dart';
 import 'package:clone/sdk/message_format.dart';
 import 'package:clone/sdk/message_payload.dart';
@@ -12,10 +9,9 @@ import 'package:clone/sdk/payload_data.dart';
 import 'package:clone/sdk/transport.dart';
 
 class Meeting extends EventEmitter {
-//  final String url = 'wss://api.meetx.madankumar.me/websocket/meeting';
-  // final String url = 'ws://192.168.1.8:8081/websocket/meeting';
-
+  // final String url = 'ws://<YOUR LOCAL IP>:8081/websocket/meeting';
   final String url = 'wss://cloneteams.herokuapp.com/websocket/meeting';
+
   Transport transport;
   String meetingId;
   List<Connection> connections = [];
