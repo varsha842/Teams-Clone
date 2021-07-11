@@ -50,9 +50,7 @@ class _HomeState extends State<Home> {
       setState(() {
         loading = false;
       });
-      // final snackbar = SnackBar(content: Text('Invalid Meeting Id'));
-      // var scaffoldKey;
-      // scaffoldKey.currentState.showSnackBar(snackbar);
+
       print(err);
     }
   }
@@ -135,8 +133,6 @@ class _HomeState extends State<Home> {
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(10),
                         child: TextFormField(
-                          // validator: (val) =>
-                          //     val.isEmpty ? 'Enter valid meeting ID' : null,
                           controller: join,
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.keyboard),
@@ -146,9 +142,6 @@ class _HomeState extends State<Home> {
                             )),
                             labelText: 'meeting ID',
                           ),
-                          // onChanged: (val) {
-                          //   setState(() => mail = val as TextEditingController);
-                          // },
                         ),
                       ),
                       SizedBox(height: 15),

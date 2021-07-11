@@ -24,8 +24,6 @@ class _SignInState extends State<SignIn> {
   TextEditingController password = TextEditingController();
   TextEditingController name = TextEditingController();
   @override
-  // String mail = ' ';
-  // String password = ' ';
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.height;
     return loading
@@ -61,19 +59,6 @@ class _SignInState extends State<SignIn> {
                                 fontSize: 30,
                                 fontStyle: FontStyle.italic),
                           )),
-                      // SizedBox(height: size * 0.03),
-                      // SvgPicture.asset(
-                      //   "assets/icons/login.svg",
-                      //   height: size * 0.35,
-                      // ),
-                      // Container(
-                      //     alignment: Alignment.center,
-                      //     padding: EdgeInsets.all(10),
-                      //     child: Text('Sign in',
-                      //         style: TextStyle(
-                      //             fontSize: 20,
-                      //             fontStyle: FontStyle.italic,
-                      //             fontWeight: FontWeight.w200))),
                       Container(
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(10),
@@ -89,9 +74,6 @@ class _SignInState extends State<SignIn> {
                             )),
                             labelText: 'user@mail.com',
                           ),
-                          // onChanged: (val) {
-                          //   setState(() => mail = val as TextEditingController);
-                          // },
                         ),
                       ),
                       Container(
@@ -112,14 +94,6 @@ class _SignInState extends State<SignIn> {
                               labelText: 'Password'),
                         ),
                       ),
-                      // FlatButton(
-                      //   onPressed: () {
-                      //     Navigator.push(context,
-                      //         MaterialPageRoute(builder: (context) => Sign()));
-                      //   },
-                      //   textColor: Colors.blue,
-                      //   child: Text('Forgot Password'),
-                      // ),
                       SizedBox(height: 10.0),
                       Container(
                           height: 40,
